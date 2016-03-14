@@ -1,0 +1,899 @@
+# Write Python code that assigns to the 
+# variable url a string that is the value 
+# of the first URL that appears in a link 
+# tag in the string page.
+# Your code should print http://udacity.com
+# Make sure that if page were changed to
+
+# page = '<a href="http://udacity.com">Hello world</a>'
+
+# that your code still assigns the same value to the variable 'url', 
+# and therefore still prints the same thing.
+
+# page = contents of a web page
+page =('<div id="top_bin"><div id="top_content" class="width960">'
+'<div class="udacity float-left"><a href="http://udacity.com">')
+
+start_link = page.find('<a href=')
+
+start_quote = page.find('"',start_link)
+
+end_quote = page.find('"', start_quote + 1)
+
+url = page[start_quote + 1: end_quote]
+
+print url
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Udacity</title>
+</head>
+<body>
+<h1>Udacity</h1>
+<p><b>Udacity</b> is a private institution of
+<a href="http://www.wikipedia.org/wiki/Higher_education">higher education founded by</a> <a href="http://www.wikipedia.org/wiki/Sebastian_Thrun">Sebastian Thrun</a>, David Stavens, and Mike Sokolsky with the goal to provide university-level education that is "both high quality and low cost".</p>   
+<p> It is the outgrowth of a free computer science class offered in 2011 through Stanford University. Currently, Udacity is working on its second course on building a search engine. Udacity was announced at the 2012 <a href="http://www.wikipedia.org/wiki/Digital_Life_Design">Digital Life Design</a> conference.</p>      
+</body>
+</html>
+
+
+# Write Python code that prints out the number of hours in 7 weeks.
+
+print 24 * 7 * 7 #1176
+
+
+
+# Write Python code that stores the distance 
+# in meters that light travels in one 
+# nanosecond in the variable, nanodistance. 
+
+# These variables are defined for you:
+
+speed_of_light = 299800000. # meters per second
+nano_per_sec = 1000000000. # 1 billion
+
+# After your code, running the following:
+
+# print nanodistance
+
+# should output: 0.2998
+
+# Note that nanodistance must be a decimal number.
+
+# ASSIGN nanodistance BELOW this line
+
+
+nanodistance = speed_of_light / nano_per_sec
+
+print nanodistance
+
+
+# Given the variables s and t defined as:
+s = 'udacity'
+t = 'bodacious'
+# write Python code that prints out udacious
+# without using any quote characters in
+# your code.
+
+print s[0:1] + t[2:] # or s[:5] + t[6:]  or s[:-2] + t[-3:]
+
+
+# Assume text is a variable that
+# holds a string. Write Python code
+# that prints out the position
+# of the first occurrence of 'hoo'
+# in the value of text, or -1 if
+# it does not occur at all.
+
+text = "first hoo" 
+
+# ENTER CODE BELOW HERE
+
+print text.find('hoo')
+
+
+
+# Assume text is a variable that
+# holds a string. Write Python code
+# that prints out the position
+# of the second occurrence of 'zip'
+# in text, or -1 if it does not occur
+# at least twice.
+
+# The Python code should be general enough
+# to pass every possible case where 'zip' 
+# can occur in a string
+
+# Here are two example test cases:
+#text = 'all zip files are zipped' 
+# >>> 18
+# text = 'all zip files are compressed'
+# >>> -1
+
+text = "all zip files are zipped" 
+
+# ENTER CODE BELOW HERE
+
+first_zip = text.find('zip')
+
+print text.find('zip', first_zip +1) # or  text.find('zip', 5)
+
+
+# IMPORTANT BEFORE SUBMITTING: 
+# You should only have one print command in your function
+
+
+
+
+# Given a variable, x, that stores the 
+# value of any decimal number, write Python 
+# code that prints out the nearest whole 
+# number to x.
+# If x is exactly half way between two 
+# whole numbers, round up, so
+# 3.5 rounds to 4 and 2.5 rounds to 3.
+# You may assume x is not negative.
+
+# Hint: The str function can convert any number into a string.
+# eg str(89) converts the number 89 to the string '89'
+
+# Along with the str function, this problem can be solved 
+# using just the information introduced in unit 1.
+
+# x = 3.14159 
+# >>> 3 (not 3.0)
+# x = 27.63 
+# >>> 28 (not 28.0)
+# x = 3.5 
+# >>> 4 (not 4.0)
+
+x = 3.14159
+
+s = str(x)
+point = s.find('.')
+print s[:point]
+
+y = 27.63
+
+num =  y + 0.5
+
+t = str(num)
+point = t.find('.')
+print t[:point]
+
+#ENTER CODE BELOW HERE
+
+
+
+###############################################
+#       Exercise by Websten from forums       #
+###############################################
+# To minimize errors when writing long texts with
+# complicated expressions you could replace 
+# the tricky parts with a marker. 
+# Write a program that takes a line of text and 
+# finds the first occurrence of a certain marker 
+# and replaces it with a replacement text. 
+# The resulting line of text should be stored in a variable. 
+# All input data will be given as variables.
+#
+# Replace the first occurrence of marker in the line below.
+# There will be at least one occurrence of the marker in the
+# line of text. Put the answer in the variable 'replaced'.
+# Hint: You can find out the length of a string by command
+# len(string). We might test your code with different markers!
+
+# Example 1
+marker = "AFK"
+replacement = "away from keyboard"
+line = "I will now go to sleep and be AFK until lunch time tomorrow."
+
+# Example 2 # uncomment this to test with different input
+#marker = "EY"
+#replacement = "Eyjafjallajokull"
+#line = "The eruption of the volcano EY in 2010 disrupted air travel in Europe for 6 days."
+
+###
+# YOUR CODE BELOW. DO NOT DELETE THIS LINE
+###
+
+a = marker.find('AFK')
+
+replaced = line[:line.find(marker)] + replacement+ line[line.find(marker) + len(marker):]
+
+print replaced
+# Example 1 output should be:
+#>>> I will now go to sleep and be away from keyboard until lunch time tomorrow.
+# Example 2 output should be:
+#>>> The eruption of the volcano Eyjafjallajokull in 2010 disrupted air travel in Europe for 6 days.
+
+
+
+###############################################
+#       Exercise by Websten from forums       #
+###############################################
+# A palindrome is a word or a phrase that reads 
+# the same backwards as forwards. Make a program 
+# that checks if a word is a palindrome. 
+# If the word is a palindrome, print 0 to the terminal,
+# -1 otherwise. 
+# The word contains lowercase letters a-z and 
+# will be at least one character long.
+#
+### HINT! ###
+# You can read a string backwards with the following syntax:
+# string[::-1] - where the "-1" means one step back.
+# This exercise can be solved with only unit 1 knowledge
+# (no loops or conditions)
+
+word = "madam"
+# test case 2
+word = "madman" # uncomment this to test
+
+###
+# YOUR CODE HERE. DO NOT DELETE THIS LINE OR ADD A word DEFINITION BELOW IT.
+###
+
+is_palindrome = (word==word[::-1]) - 1
+
+# TESTING
+print is_palindrome
+
+# >>> 0  # outcome if word == "madam"
+# >>> -1 # outcome if word == "madman"
+
+
+# Define a procedure, square, that takes one number 
+# as its input, and returns the square of that 
+# number (result of multiplying
+# the number by itself).
+# To help you out, the code for sum(a,b) is below.
+
+def sum(a,b):
+    c = a + b
+    return c
+
+
+def square(a):
+    return a * a
+    
+
+# To test your procedure, uncomment the print 
+# statement below, by removing the hash mark (#) 
+# at the beginning of the line.
+
+# Do not remove the # from in front of the line 
+# with the arrows (>>>). Lines which begin like 
+# this (#>>>) are included to show the results
+# you should see when run your procedure.
+
+print square(5)
+#>>> 25
+
+
+# Define a procedure, sum3, that takes three
+# inputs, and returns the sum of the three
+# input numbers.
+# To help you out, the code for sum(a,b) is below.
+
+def sum(a,b):
+    return a + b
+
+
+def sum3(a,b,c):
+    return a + b + c
+
+
+print sum3(1,2,3)
+#>>> 6
+
+print sum3(93,53,70)
+#>>> 216
+
+
+
+# Define a procedure, abbaize, that takes
+# two strings as its inputs, and returns
+# a string that is the first input,
+# followed by two repetitions of the second input,
+# followed by the first input.
+
+
+def abbaize(a,b):
+    return a + b + b + a
+
+
+print abbaize('a','b')
+#>>> 'abba'
+
+print abbaize('dog','cat')
+#>>> 'dogcatcatdog'
+
+
+
+# Define a procedure, find_second, that takes
+# two strings as its inputs: a search string
+# and a target string. It should return a
+# number that is the position of the second
+# occurrence of the target string in the
+# search string.
+
+def find_second(a, b):
+    c = a.find(b)
+    d = a.find(b, c +1)
+    return d
+
+danton = "De l'audace, encore de l'audace, toujours de l'audace"
+print find_second(danton, 'audace')
+#>>> 25
+
+twister = "she sells seashells by the seashore"
+print find_second(twister,'she')
+#>>> 13
+
+
+# Define a procedure, bigger, that takes in
+# two numbers as inputs, and returns the
+# greater of the two inputs.
+
+def bigger(a, b):
+    if a < b:
+       return b
+    return a 
+
+# OR       
+
+def bigger(a, b):
+    if a < b:
+       return b
+    else:
+       return a 
+    
+print bigger(2, 7)
+print bigger(3, 2)
+print bigger(3, 3)
+
+
+#print bigger(2,7)
+#>>> 7
+
+#print bigger(3,2)
+#>>> 3
+
+#print bigger(3,3)
+#>>> 3
+
+
+
+# Define a procedure, is_friend, that
+# takes a string as its input, and
+# returns a Boolean indicating if
+# the input string is the name of
+# a friend. Assume I am friends with
+# everyone whose name starts with D
+# and no one else. You do not need to
+# check for the lower case 'd'
+
+def is_friend(name):
+    if name[0] == 'D':
+        return True
+    else:
+        return False
+
+# OR
+
+ def is_friend(name):
+    return name[0] == 'D':       
+
+
+print is_friend('Diane')
+#>>> True
+
+print is_friend('Fred')
+#>>> False
+
+# Define a procedure, is_friend, that takes
+# a string as its input, and returns a
+# Boolean indicating if the input string
+# is the name of a friend. Assume
+# I am friends with everyone whose name
+# starts with either 'D' or 'N', but no one
+# else. You do not need to check for
+# lower case 'd' or 'n'
+
+def is_friend(name):
+    if name[0] == 'D' or name[0] == 'N':
+        return True
+    else:
+        return False
+
+# OR
+
+def is_friend(name):
+	if name[0] == 'D':
+		return True
+	if name[0] == 'N':
+		return True
+	return False	        
+
+# OR
+
+def is_friend(name):
+	if name[0] == 'D':
+		return True
+	else:
+		if name[0] == 'N':
+			return True
+		else:	
+			return False
+
+
+print is_friend('Diane')
+#>>> True
+
+print is_friend('Ned')
+#>>> True
+
+print is_friend('Moe')
+#>>> False
+
+print True or False
+print False or False
+print True or True
+print False or True
+
+
+
+
+# Define a procedure, biggest, that takes three
+# numbers as inputs and returns the largest of
+# those three numbers.
+
+def biggest(a, b, c):
+    if a > b:
+        if a > c:
+            return a
+        else:
+            return c
+    else:
+        if b > c:
+            return b
+        else:
+            return c
+
+
+
+#print biggest(3, 6, 9)
+#>>> 9
+
+#print biggest(6, 9, 3)
+#>>> 9
+
+#print biggest(9, 3, 6)
+#>>> 9
+
+#print biggest(3, 3, 9)
+#>>> 9
+
+#print biggest(9, 3, 9)
+#>>> 9
+
+
+
+# Define a procedure, print_numbers, that takes
+# as input a positive whole number, and prints 
+# out all the whole numbers from 1 to the input
+# number.
+
+# Make sure your procedure prints "upwards", so
+# from 1 up to the input number.
+def print_numbers(a):
+    i = 1
+    while i <= a:
+        print i
+        i = i + 1
+
+# OR whent starting from 0
+
+def print_numbers(a):
+    i = 1
+    while i < a:
+        i = i + 1
+        print i        
+                  
+print_numbers(3)
+#>>> 1
+#>>> 2
+#>>> 3
+
+
+# Define a procedure, factorial, that
+# takes one number as its input
+# and returns the factorial of
+# that number.
+
+def factorial(n):
+    result = 1
+    while n >= 1:
+        result = result * n
+        n = n - 1
+    return result
+
+
+
+print factorial(4)
+#>>> 24
+print factorial(5)
+#>>> 120
+print factorial(6)
+#>>> 720
+
+
+# Longer Explanation of Solution
+
+# The purpose of looping is to repeat some operation over and over again. Since the factorial function is defined as repeated multiplications it makes sense # to use a while loop to calculate factorials.
+
+# That's the abstract reasoning, here's how Dave's solution actually works. The function needs to multiply all the numbers from 1 to n together. The while loop does this by counting from n down to 1*. Inside the loop's body (ie the indented part) n is equal to whatever number in the countdown we're currently at, and at the end of the loop n is decremented in preparation for the next iteration of the loop.
+
+# So that's how we get the sequence of n, n-1, ... 1. The rest of the solution handles the multiplication. "result" is the work-in-progess answer, it gets updated each time the loop repeats.
+
+# Here's a step-by-step look at the algorithm. The part in square brackets is what result equals at the top of the loop before we update it.
+# •first loop: result is updated to [1]*n.
+# •second loop: result is updated to [1*n]*(n-1).
+# •third loop: result is updated to [1*n*(n-1)]*(n-2)
+# •...
+
+# Once the loop is done (n has counted all the way down to 1), the value of result is the final result.
+
+# The return statement is the last piece. return is how a function provides its results back to whoever called it. In this example, we use the result of the factorial function (the number it returns) in a print statement. We could also store it in a variable like this: a_variable = factorial(42) Or we could use the result of a function as the input to another function: sum(factorial(3), factorial(5))
+
+# We need return statements because most of the time we don't want to print the results of some calculation. We usually want to reuse that result for something later on.
+
+# *It's also possible to do it by counting from 1 up to n. Rewriting the loop that way would be a good exercise if you want more practice with while loops.
+
+
+# Modify the get_next_target procedure so that
+# if there is a link it behaves as before, but
+# if there is no link tag in the input string,
+# it returns None, 0.
+
+# Note that None is not a string and so should
+# not be enclosed in quotes.
+
+# Also note that your answer will appear in
+# parentheses if you print it.
+
+def get_next_target(page):
+    start_link = page.find('<a href=')
+
+    #Insert your code below here
+    if start_link == -1:
+        return None, 0
+    
+    start_quote = page.find('"', start_link)
+    end_quote = page.find('"', start_quote + 1)
+    url = page[start_quote + 1:end_quote]
+    return url, end_quote
+
+url, endpos = get_next_target('Not "good" at all!')
+if url:
+    print "Here!"
+else:
+    print "Not Here!"
+print url    
+               
+
+
+# Define a procedure, udacify, that takes as
+# input a string, and returns a string that
+# is an uppercase 'U' followed by the input string.
+# for example, when you enter
+
+# print udacify('dacians')
+
+# the output should be the string 'Udacians'
+
+def udacify(u):
+    a = "U"
+    return a + u
+
+#OR    
+
+def udacify(u):
+	return 'U' + u
+
+
+# Remove the hash, #, from infront of print to test your code.
+
+print udacify('dacians')
+#>>> Udacians
+
+print udacify('turn')
+#>>> Uturn
+
+print udacify('boat')
+#>>> Uboat
+
+
+
+# Define a procedure, median, that takes three
+# numbers as its inputs, and returns the median
+# of the three numbers.
+
+# Make sure your procedure has a return statement.
+
+def bigger(a,b):
+    if a > b:
+        return a
+    else:
+        return b
+
+def biggest(a,b,c):
+    return bigger(a,bigger(b,c))
+
+def median(a,b,c):
+	big = biggest(a,b,c)
+	if big == a:
+		return bigger(b,c)
+	if big == b:
+		return bigger(a,c)
+	else:
+		return bigger(a,b)	
+
+
+print(median(1,2,3))
+#>>> 2
+
+print(median(9,3,6))
+#>>> 6
+
+print(median(7,8,7))
+#>>> 7
+
+
+
+# Define a procedure, countdown, that takes a
+# positive whole number as its input, and prints
+# out a countdown from that number to 1,
+# followed by Blastoff!
+# The procedure should not return anything.
+# For this question, you just need to call 
+# the procedure using the line
+# countdown(3)
+# instead of print countdown(3).
+
+def countdown(a):
+    while n > 0:
+        print a
+        n = n - 1
+    print "Blastoff!"    
+        
+
+countdown(3)
+#>>> 3
+#>>> 2
+#>>> 1
+#>>> Blastoff!
+
+
+
+
+# Define a procedure, find_last, that takes as input
+# two strings, a search string and a target string,
+# and returns the last position in the search string
+# where the target string appears, or -1 if there
+# are no occurrences.
+#
+# Example: find_last('aaaa', 'a') returns 3
+
+# Make sure your procedure has a return statement.
+
+def find_last(x,y):
+	last_pos = -1
+	while True:
+		pos = x.find(y, last_pos + 1)
+		if pos == -1:
+			return last_pos
+		last_pos = pos
+
+
+print find_last('aaaa', 'a')
+#>>> 3
+
+print find_last('aaaaa', 'aa')
+#>>> 3
+
+print find_last('aaaa', 'b')
+#>>> -1
+
+print find_last("111111111", "1")
+#>>> 8
+
+print find_last("222222222", "")
+#>>> 9
+
+print find_last("", "3")
+#>>> -1
+
+print find_last("", "")
+#>>> 0
+
+
+
+# Define a procedure weekend which takes a string as its input, and
+# returns the boolean True if it's 'Saturday' or 'Sunday' and False otherwise.
+
+def weekend(day):
+    # your code here
+    if day == 'Saturday' or day == 'Sunday':
+        return True
+    else:
+        return False
+    
+    
+print weekend('Monday')
+#>>> False
+
+print weekend('Saturday')
+#>>> True
+
+print weekend('July')
+#>>> False
+
+
+# Define a procedure, stamps, which takes as its input a positive integer in
+# pence and returns the number of 5p, 2p and 1p stamps (p is pence) required 
+# to make up that value. The return value should be a tuple of three numbers 
+# (that is, your return statement should be followed by the number of 5p,
+# the number of 2p, and the number of 1p stamps).
+#
+# Your answer should use as few total stamps as possible by first using as 
+# many 5p stamps as possible, then 2 pence stamps and finally 1p stamps as 
+# needed to make up the total.
+#
+# (No fair for USians to just say use a "Forever" stamp and be done with it!)
+#
+
+def stamps(n):
+    # Your code here
+    Fives = n//5
+    Twos = (n%5)//2
+    Ones = ((n%5)%2)
+    return (Fives, Twos, Ones)
+    
+
+
+print stamps(8)
+#>>> (1, 1, 1)  # one 5p stamp, one 2p stamp and one 1p stamp
+print stamps(5)
+#>>> (1, 0, 0)  # one 5p stamp, no 2p stamps and no 1p stamps
+print stamps(29)
+#>>> (5, 2, 0)  # five 5p stamps, two 2p stamps and no 1p stamps
+print stamps(0)
+#>>> (0, 0, 0) # no 5p stamps, no 2p stamps and no 1p stamps
+
+
+
+# The range of a set of values is the maximum value minus the minimum
+# value. Define a procedure, set_range, which returns the range of three input
+# values.
+
+# Hint: the procedure, biggest which you coded in this unit
+# might help you with this question. You might also like to find a way to
+# code it using some built-in functions.
+
+def set_range(one, two, three):
+    def bigger(a, b):
+        if a >= b:
+            return a
+        else:
+            return b
+    def biggest(a, b, c):
+        return bigger(bigger(a, b), c)
+    def smallest(a, b, c):
+        return -biggest(-a, -b, -c)
+    max_value = biggest(one, two, three)
+    min_value = smallest(one, two, three)
+    return max_value - min_value
+
+#OR
+
+def set_range(a,b,c):
+    return max(a,b,c) - min(a,b,c) 
+
+
+print set_range(10, 4, 7)
+#>>> 6  # since 10 - 4 = 6
+
+print set_range(1.1, 7.4, 18.7)
+#>>> 17.6 # since 18.7 - 1.1 = 17.6
+
+
+
+
+# By Sam the Great from forums
+# That freaking superhero has been frequenting Udacity
+# as his favorite boss battle fight stage. The 'Udacity'
+# banner keeps breaking, and money is being wasted on
+# repairs. This time, we need you to proceduralize the
+# fixing process by building a machine to automatically
+# search through debris and return the 'Udacity' banner
+# to the company, and be able to similarly fix other goods.
+
+# Write a Python procedure fix_machine to take 2 string inputs
+# and returns the 2nd input string as the output if all of its
+# characters can be found in the 1st input string and "Give me
+# something that's not useless next time." if it's impossible.
+# Letters that are present in the 1st input string may be used
+# as many times as necessary to create the 2nd string (you
+# don't need to keep track of repeat usage).
+
+# NOTE: # If you are experiencing difficulties taking
+        # this problem seriously, please refer back to
+        # "Superhero flyby", the prequel, in Problem Set 11.
+
+# TOOLS: # if statement
+         # while loop
+         # string operations
+         # Unit 1 Basics
+
+# BONUS: # 
+# 5***** #  If you've graduated from CS101,
+#  Gold  #  try solving this in one line.
+# Stars! #
+
+def fix_machine(debris, product):
+    ### WRITE YOUR CODE HERE ###
+    x = len(product)
+    while x > 0:
+        check = debris.find(product[x-1])
+        if check == -1:
+            return "Give me something that's not useless next time."
+        x = x - 1
+    return product
+
+### TEST CASES ###
+print "Test case 1: ", fix_machine('UdaciousUdacitee', 'Udacity') == "Give me something that's not useless next time."
+print "Test case 2: ", fix_machine('buy me dat Unicorn', 'Udacity') == 'Udacity'
+print "Test case 3: ", fix_machine('AEIOU and sometimes y... c', 'Udacity') == 'Udacity'
+print "Test case 4: ", fix_machine('wsx0-=mttrhix', 't-shirt') == 't-shirt'
+
+
+
+# By Websten from forums
+#
+# Given your birthday and the current date, calculate your age in days. 
+# Account for leap days. 
+#
+# Assume that the birthday and current date are correct dates (and no 
+# time travel). 
+#
+
+# Simple Solution
+
+from datetime import date
+
+def daysBetweenDates(year1, month1, day1, year2, month2, day2):
+    return (date(year2,month2,day2)-date(year1,month1,day1)).days
+    
+    
+
+# Test routine
+
+def test():
+    test_cases = [((2012,1,1,2012,2,28), 58), 
+                  ((2012,1,1,2012,3,1), 60),
+                  ((2011,6,30,2012,6,30), 366),
+                  ((2011,1,1,2012,8,8), 585 ),
+                  ((1900,1,1,1999,12,31), 36523)]
+    for (args, answer) in test_cases:
+        result = daysBetweenDates(*args)
+        if result != answer:
+            print "Test with data:", args, "failed"
+        else:
+            print "Test case passed!"
+
+test()
+
+print daysBetweenDates(1970,5,9,2016,3,10)
