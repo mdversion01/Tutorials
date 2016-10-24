@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>Welcome in the Angular JS</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.1/angular.min.js"></script>
+</head>
+<body ng-app="sampleApplication">
+    <div ng-controller="sampleController">
+        <select ng-model="empName" ng-options="emp.name as emp.name for emp in employees"></select>
+    </div>
+<script>
+    var app = angular.module("sampleApplication", []);
+    app.controller("sampleController", function ($scope) {
+        $scope.employees = [{ name: "Kingsley", age: "25", phoneNumber: "563544466" },
+            { name: "Knuth", age: "34", phoneNumber: "657865856" },
+            { name: "Mullally", age: "27", phoneNumber: "679423435" },
+            { name: "Pasteur", age: "25", phoneNumber: "343667789" }];
+    });
+</script> 
+</body>
+</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+ <title>Welcome in the Angular JS</title>
+ <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.1/angular.min.js"></script>
+</head>
+<body ng-app="sampleApplication">
+  <div ng-controller="sampleController" >
+    <button ng-click="personLike=personLike+1">Like</button>
+    <ng-pluralize count="personLike"
+                  when="{'0': '0 person like this.',
+                        '1': '1 person like this.',
+                        'other': '{} persons like this.'}">
+    </ng-pluralize>
+  </div>
+<script> 
+  var app = angular.module("sampleApplication", []); 
+  app.controller("sampleController", function($scope) { 
+    $scope.personLike = 0; 
+  }); 
+</script>  
+</body>
+</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              

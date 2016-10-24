@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+ <title>Welcome in the Angular JS</title>
+ <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.1/angular.min.js"></script>
+</head>
+<body ng-app="sampleApplication">
+  <div ng-controller="sampleController" >
+    Total Amount is : {{amount | currency : '$' : 3}} 
+  </div>
+<script> 
+  var app = angular.module("sampleApplication", []); 
+  app.controller("sampleController", function($scope) { 
+    $scope.amount = "1500"; 
+  }); 
+</script>
+</body>
+</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   

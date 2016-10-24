@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>Welcome in the Angular JS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.1/angular.min.js"></script>
+</head>
+<body ng-app>
+    <div>
+        <form name="sampleForm">
+            <input type="text" ng-model="name" name="name" required />
+            <span ng-show="sampleForm.name.$error.required" class="text-danger">This field is required !</span><br />
+
+            Form Valid : {{sampleForm.$valid}}    <br />
+            Form Invalid : {{sampleForm.$invalid}}    <br />
+
+            Input Valid : {{sampleForm.name.$valid}}  <br />
+            Input Invalid : {{sampleForm.name.$invalid}}  <br />
+
+            Required Error : {{sampleForm.name.$error.required}}  <br />
+
+            dirty : {{sampleForm.name.$dirty}}  <br />
+            pristine : {{sampleForm.name.$pristine}}  <br />
+        </form>
+    </div>
+</body>
+</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              

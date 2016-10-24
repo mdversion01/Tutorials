@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>Welcome in the Angular JS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.1/angular.min.js"></script>
+</head>
+<body ng-app="sampleApplication">
+    <div ng-controller="sampleController">
+        Today's Date is : {{todayDate}} <br />
+        Today's Date is : {{todayDate | date:'medium'}} <br />
+        Today's Date is : {{todayDate | date:'short'}} <br /><br />
+
+        Today's Date is : {{todayDate | date:'fullDate'}} <br />
+        Today's Date is : {{todayDate | date:'longDate'}} <br />
+        Today's Date is : {{todayDate | date:'mediumDate'}} <br />
+        Today's Date is : {{todayDate | date:'shortDate'}} <br /><br />
+
+        Today's Date is : {{todayDate | date:'dd-MM-yy'}} <br />
+        Today's Date is : {{todayDate | date:'dd-MM-yyyy'}} <br />
+        Today's Date is : {{todayDate | date:'dd-MMM-yyyy'}} <br /><br />
+
+        Today's Date is : {{todayDate | date:'dd/MM/yy'}} <br />
+        Today's Date is : {{todayDate | date:'dd/MM/yyyy'}} <br />
+        Today's Date is : {{todayDate | date:'dd/MMM/yyyy'}} <br />
+    </div>
+<script>
+    var app = angular.module('sampleApplication', []);
+    app.controller('sampleController', function ($scope) {
+        $scope.todayDate = new Date();
+    });
+</script>  
+</body>
+</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         

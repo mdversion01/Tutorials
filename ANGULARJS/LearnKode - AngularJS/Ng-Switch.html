@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+ <title>Welcome in the Angular JS</title>
+ <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.1/angular.min.js"></script>
+</head>
+<body ng-app="sampleApplication">
+  <div ng-controller="sampleController" >
+    <select ng-model="item" ng-options="item for item in items"></select>
+    <div ng-switch="item">
+      <div ng-switch-when="Textbox">
+        <input type="text" />
+      </div>
+      <div ng-switch-when="Numeric">
+        <input type="number" />
+      </div>
+      <div ng-switch-when="Dropdown">
+        <select><option>Sample 1</option><option>Sample 2</option></select>
+      </div>
+      <div ng-switch-default>
+        This is default Content
+      </div>
+    </div>
+  </div>
+<script> 
+  var app = angular.module("sampleApplication", []); 
+  app.controller("sampleController", function($scope) { 
+    $scope.items = ["Textbox", "Numeric", "Dropdown"]; 
+  }); 
+</script>  
+</body>
+</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
